@@ -1,0 +1,33 @@
+.auth__container{
+  max-width: 395px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 70px;
+  box-sizing: border-box;
+}
+
+.auth-title{
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 40px;
+  padding: 0;
+  letter-spacing: 0;
+  border: none;
+}
+
+@media(max-width:455px) and (min-width:395px){
+  .auth__container{
+    padding-left:calc((100vw - 395px)/(455 - 395) * (0 - 30) + 30px);
+    padding-right:calc((100vw - 395px)/(455 - 395) * (0 - 30) + 30px);
+  }
+}
+
+@media (max-width:395px){
+  .auth__container{
+    padding: 0 30px 70px;
+  }
+}
