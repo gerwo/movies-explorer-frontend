@@ -24,14 +24,14 @@ function Profile() {
             <div className="form__input-container form__input-container_section_profile">
               <label className="form__label form__label_section_profile" htmlFor="name">
                 Имя
-                <input name="name" className="form__input form__input_section_profile" required minLength={2} maxLength={30}/>
+                <input name="name" className="form__input form__input_section_profile" required minLength={2} maxLength={30} value="Роман" disabled/>
               </label>
               <span className="form__error"></span>
             </div>
             <div className="form__input-container">
               <label className="form__label form__label_section_profile" htmlFor="email">
                 Почта
-                <input name="email" type="email" className="form__input form__input_section_profile" required/>
+                <input name="email" type="email" className="form__input form__input_section_profile" required value="r.grishin@bk.ru" disabled/>
               </label>
               <span className="form__error"></span>
             </div>

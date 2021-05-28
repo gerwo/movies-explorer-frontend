@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import Menu from '../Menu/Menu';
 import './MobileMenu.css';
 
-const MobileMenu = ({ navWhite }) => (
+const MobileMenu = () => (
   <div className="mobile-menu">
     <input className="mobile-menu__checkbox" type="checkbox" id="checkbox" />
     <label className="mobile-menu__label" htmlFor="checkbox">
-      <span className={`mobile-menu__button ${navWhite && 'mobile-menu__white-button'}`} />
+      <span className="mobile-menu__button" />
     </label>
 
     <div className="mobile-menu__navigation-container">

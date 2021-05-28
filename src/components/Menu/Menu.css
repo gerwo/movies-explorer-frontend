@@ -13,7 +13,7 @@
 }
 
 .navigation__link{
-  color: #000;
+  color: #fff;
   text-decoration: none;
   font-style: normal;
   font-weight: normal;
@@ -34,12 +34,11 @@
   line-height: 16px;
   color: #fff;
   text-decoration: none;
-  color: #000;
   padding: 8px 42px 8px 10px;
 }
 
 .navigation__account-link:after{
-  background: #F5F5F5 url('../../images/account-icon-white-theme.svg') no-repeat 8px 7px;
+  background: #313131 url('../../images/account-icon.svg') no-repeat 8px 7px;
   right: 0;
   top: 2px;
   left: auto;
@@ -63,12 +62,4 @@
 .navigation__account-link:hover{
   opacity: .7;
   transition: opacity .25s ease-in-out;
-}
-
-.navigation__white-link{
-  color: #fff;
-}
-
-.navigation__white-account-link{
-  color: #fff;
 }

@@ -1,5 +1,5 @@
 .techs__section{
-  background: #F5F5F5;
+  background: #272727;
 }
 
 .techs__info{
@@ -11,6 +11,7 @@
 }
 
 .techs__subtitle{
+  color: #fff;
   font-style: normal;
   font-weight: normal;
   font-size: 50px;
@@ -22,6 +23,7 @@
 }
 
 .techs__text{
+  color: #fff;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -43,8 +45,8 @@
 
 .techs__list-item{
   list-style: none;
-  color: #000;
-  background: #E8E8E8;
+  color: #fff;
+  background: #303030;
   border-radius: 10px;
   font-style: normal;
   font-weight: normal;

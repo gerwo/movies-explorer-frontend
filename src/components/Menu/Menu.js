@@ -5,7 +5,6 @@ import './Menu.css';
 function Menu({
   children,
   mod = '',
-  navWhite = false,
   navigationListMod = '',
   navigationListItemMod = '',
   navigationLinkMod = '',
@@ -19,7 +18,7 @@ function Menu({
         <li className={`navigation__list-item ${navigationListItemMod}`}>
           <NavLink
             to="/movies"
-            className={`navigation__link ${navigationLinkMod} ${navWhite && 'navigation__white-link'}`}
+            className={`navigation__link ${navigationLinkMod}`}
             activeClassName={`navigation__link_active ${navigationLinkActiveMode}`}>
               Фильмы
           </NavLink>
@@ -27,14 +26,14 @@ function Menu({
         <li className={`navigation__list-item ${navigationListItemMod}`}>
           <NavLink
             to="/saved-movies"
-            className={`navigation__link ${navigationLinkMod} ${navWhite && 'navigation__white-link'}`}
+            className={`navigation__link ${navigationLinkMod}`}
             activeClassName={`navigation__link_active ${navigationLinkActiveMode}`}>
               Сохраненные фильмы
           </NavLink>
         </li>
       </ul>
       <div className={`navigation__account-container ${navigationAccountMod}`}>
-        <NavLink to="/profile" className={`navigation__account-link ${navWhite ? 'navigation__white-account-link' : ''}`}>Аккаунт</NavLink>
+        <NavLink to="/profile" className="navigation__account-link">Аккаунт</NavLink>
       </div>
     </nav>
   );

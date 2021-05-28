@@ -15,9 +15,9 @@
   font-size: 13px;
   line-height: 16px;
   text-align: center;
-  color: #A0A0A0;
+  color: #8B8B8B;
   margin: 0;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #424242;
   padding-bottom: 20px;
 }
 
@@ -28,6 +28,7 @@
 }
 
 .footer__copy{
+  color: #fff;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -47,7 +48,7 @@
   font-weight: normal;
   font-size: 13px;
   line-height: 16px;
-  color: #000000;
+  color: #fff;
 }
 
 .footer__nav-link:hover {
@@ -74,7 +75,7 @@
   }
 
   .footer__copy{
-    color: #A0A0A0;
+    color: #8B8B8B;
     order: 2;
     justify-self: center;
     margin-top: 30px;

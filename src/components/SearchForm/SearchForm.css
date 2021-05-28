@@ -6,65 +6,88 @@
 .search-form__container{
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 70px 0px 70px;
+  padding: 70px 70px 0px;
   box-sizing: border-box;
 }
 
 .search-form__input-container{
   position: relative;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 15px;
 }
 
 .search-form__input:focus{
   outline: none;
-  box-shadow: 0px 0px 5px #3456F3;
+  box-shadow: 0px 0px 5px #4285F4;
 }
 
 .search-form__input{
   width: 100%;
-  height: 48px;
-  border-radius: 50px;
-  border: 1px solid #E8E8E8;
-  padding: 0 22px;
+  height: 38px;
   box-sizing: border-box;
+  background: no-repeat;
+  border: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  color: #8B8B8B;
+  border-radius: 50px;
+}
+
+.search-form__input-container:before{
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 6px;
+  top: 3px;
+  border: 1px solid #424242;
+  border-radius: 50%;
+  background: url('../../images/search-icon.svg') no-repeat center center;
 }
 
 .search-form__search-container{
-  display: grid;
-  grid-template-columns: auto 167px;
   box-sizing: border-box;
-  gap: 40px;
-  padding-bottom: 85px;
-  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 45px;
 }
 
 .search-form__button {
-  width: 34px;
   height: 34px;
   border: none;
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  border-radius: 50%;
+  border-radius: 48px;
   cursor: pointer;
-  background: #3456F3 url('../../images/search-icon.svg') no-repeat center center;
+  background: #4285F4;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  color: #fff;
+  padding: 5px 12px 5px 12px;
 }
 
 .search-form__input::placeholder {
   font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 18px;
-  color: #A0A0A0;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  color: #8B8B8B;
 }
 
 .search-form__switch-container{
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 14px;
-  align-items: center;
+  grid-template-columns: 36px auto;
+  margin: 0 auto;
+  max-width: 174px;
+  margin-top: 30px;
+  gap: 10px;
 }
 
 .search-form__checkbox-text{
+  color: #fff;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -97,10 +120,10 @@
 .switch__slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
-  left: 2px;
-  bottom: 2px;
+  height: 8px;
+  width: 8px;
+  left: 6px;
+  bottom: 6px;
   background-color: white;
   transition: .4s;
 }

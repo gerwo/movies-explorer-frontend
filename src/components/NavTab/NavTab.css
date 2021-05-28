@@ -1,24 +1,24 @@
 .nav-tab{
-  background: #000;
-  padding: 24px 0;
-  align-items: center;
-  display: flex;
   flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 96px);
+  max-width: 308px;
+  gap: 10px;
+  margin: 0 auto;
 }
 
-.nav-tab__container{
-  max-width: 276px;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 40px;
-}
 
 .nav-tab__link{
   color: #fff;
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
+  background: #303030;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 0;
+  text-align: center;
 }
 
 .nav-tab__link:hover{
@@ -27,7 +27,8 @@
 }
 
 @media (max-width:400px){
-  .nav-tab__container{
-    gap: 24px;
+  .nav-tab{
+    gap: 6px;
+    max-width: 300px;
   }
 }

@@ -6,7 +6,7 @@ import './Register.css';
 
 function Register() {
   return (
-    <>
+    <div className="auth">
       <Header mod="header-auth" />
       <AuthSection
         buttonText="Зарегистрироваться"
@@ -34,7 +34,7 @@ function Register() {
             </div>
           </fieldset>
       </AuthSection>
-    </>
+    </div>
   );
 }
 

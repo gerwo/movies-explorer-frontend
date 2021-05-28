@@ -1,7 +1,6 @@
 .header{
   width: 100%;
   box-sizing: border-box;
-  background-color: #fff;
 }
 
 .header__container{
@@ -12,10 +11,6 @@
   margin: 0 auto;
   padding: 18px 70px;
   box-sizing: border-box;
-}
-
-.header_dark-theme{
-  background-color: #073042;
 }
 
 .header-auth{
@@ -34,8 +29,8 @@
   .header__container{
     padding: 18px 30px;
   }
-  .header-auth__container{
-    padding: 0 0 0 5px;
+  .header-auth{
+    padding: 70px 0 40px;
   }
 }
 
@@ -50,8 +45,8 @@
     max-width: 100%;
     padding: 20px 32px;
   }
-  .header-auth__container{
-    padding: 0 0 0 5px;
+  .header-auth{
+    padding: 70px 0 40px;
   }
 }
 
@@ -60,8 +55,8 @@
     padding: 18px 14px;
   }
 
-  .header-auth__container{
-    padding: 0 0 0 5px;
+  .header-auth{
+    padding: 70px 0 40px;
     justify-content: center;
   }
 }

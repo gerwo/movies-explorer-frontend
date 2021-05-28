@@ -10,6 +10,7 @@
 }
 
 .section__title{
+  color: #fff;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
@@ -17,5 +18,5 @@
   letter-spacing: -0.04em;
   margin: 0;
   padding-bottom: 23px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #DADADA;;
 }

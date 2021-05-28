@@ -10,14 +10,14 @@ function SearchForm() {
         <div className="search-form__search-container">
           <div className="search-form__input-container">
             <input className="search-form__input" placeholder="Фильм" />
-            <button className="search-form__button"></button>
+            <button className="search-form__button">Найти</button>
           </div>
           <div className="search-form__switch-container">
-            <p className="search-form__checkbox-text">Короткометражки</p>
             <label className="switch">
               <input className="switch__input" type="checkbox"/>
               <span className="switch__slider"></span>
             </label>
+            <p className="search-form__checkbox-text">Короткометражки</p>
           </div>
         </div>
         <span className="search-form__error"></span>

@@ -16,7 +16,7 @@
 .form__label {
   font-size: 11px;
   line-height: 13px;
-  color: #A0A0A0;
+  color: #8B8B8B;
   margin: 0 0 10px;
   font-style: normal;
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .form__label_section_profile {
-  color: #000;
+  color: #fff;
   margin: 0;
   flex-direction: row;
   justify-content: space-between;
@@ -34,13 +34,14 @@
 .form__input {
   margin: 10px 0 10px;
   border: none;
-  background: #F4F4F4;
+  color: #fff;
   padding: 15px;
   box-sizing: border-box;
   font-size: 13px;
   line-height: 16px;
   outline: none;
   border-radius: 8px;
+  background: #2F2F2F;
 }
 
 .form__input:focus{
@@ -73,7 +74,7 @@
   color: #fff;
   font-size: 14px;
   line-height: 17px;
-  background: #3456F3;
+  background: #4285F4;;
   cursor: pointer;
   border-radius: 3px;
 }
@@ -107,7 +108,7 @@
 .form__submit-button_section_profile {
   padding: 0;
   background: transparent;
-  color: #000;
+  color: #fff;
   font-size: 13px;
   line-height: 16px;
   min-height: 0;
@@ -150,7 +151,7 @@
 
 .form__link {
   text-decoration: none;
-  color: #3456F3;
+  color: #4285F4;
 }
 
 .form__link:hover {

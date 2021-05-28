@@ -15,9 +15,9 @@ import './Main.css';
 function Main({ isLoggedIn }) {
   return (
     <main className="main">
-      <Header mod="header_dark-theme">
+      <Header>
       {
-        !isLoggedIn ? <AuthNav /> : <Navigation navWhite={true}/>
+        !isLoggedIn ? <AuthNav /> : <Navigation/>
       }
       </Header>
       <Promo />
