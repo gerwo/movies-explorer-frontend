@@ -10,9 +10,9 @@ function Footer() {
         <div className="footer__content-info">
           <div className="footer__copy">&copy; {new Date().getFullYear()}</div>
           <nav className="footer__nav">
-            <Link to="#" className="footer__nav-link">Яндекс.Практикум</Link>
-            <Link to="#" className="footer__nav-link">Github</Link>
-            <Link to="#" className="footer__nav-link">Facebook</Link>
+            <Link to="https://praktikum.yandex.ru" className="footer__nav-link">Яндекс.Практикум</Link>
+            <Link to="https://github.com/gerwo" className="footer__nav-link">Github</Link>
+            <Link to="https://www.facebook.com/roman.grishin.792" className="footer__nav-link">Facebook</Link>
           </nav>
         </div>
       </div>
