@@ -36,7 +36,7 @@ function AboutMe({ children }) {
           </ul>
         </div>
         <div className="about-me__last-column">
-          <img className="about-me__image" src={photo} alt="Фото студента" />
+          <img className="about-me__image" src={photo} alt="Фото студента"/>
         </div>
       </div>
        { children }

@@ -30,5 +30,10 @@
   .nav-tab{
     gap: 6px;
     max-width: 300px;
+    grid-template-columns: repeat(auto-fit, 82px);
+  }
+  .nav-tab__link{
+    font-size: 10px;
+    line-height: 16px;
   }
 }

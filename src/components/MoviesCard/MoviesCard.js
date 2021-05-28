@@ -16,7 +16,7 @@ function MoviesCard() {
             <button className="movie__button movie__save-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
       <li className="movie">
         <div className="movie__container">
@@ -28,7 +28,7 @@ function MoviesCard() {
             <button className="movie__button movie__save-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
       <li className="movie">
         <div className="movie__container">
@@ -40,7 +40,7 @@ function MoviesCard() {
             <button className="movie__button movie__unsave-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
       <li className="movie">
         <div className="movie__container">
@@ -52,7 +52,7 @@ function MoviesCard() {
             <button className="movie__button movie__unsave-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
       <li className="movie">
         <div className="movie__container">
@@ -64,7 +64,7 @@ function MoviesCard() {
             <button className="movie__button movie__unsave-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
       <li className="movie">
         <div className="movie__container">
@@ -76,7 +76,7 @@ function MoviesCard() {
             <button className="movie__button movie__save-button"></button>
           </div>
         </div>
-        <img src={defaultMovieImage} className="movie__image"/>
+        <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
       </li>
     </>
   );

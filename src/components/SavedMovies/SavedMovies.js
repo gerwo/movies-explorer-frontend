@@ -28,7 +28,7 @@ function SavedMovies() {
                   <button className="movie__button movie__delete-button"></button>
                 </div>
               </div>
-              <img src={defaultMovieImage} className="movie__image"/>
+              <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
             </li>
             <li className="movie">
               <div className="movie__container">
@@ -40,7 +40,7 @@ function SavedMovies() {
                   <button className="movie__button movie__delete-button"></button>
                 </div>
               </div>
-              <img src={defaultMovieImage} className="movie__image"/>
+              <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
             </li>
             <li className="movie">
               <div className="movie__container">
@@ -52,7 +52,7 @@ function SavedMovies() {
                   <button className="movie__button movie__delete-button"></button>
                 </div>
               </div>
-              <img src={defaultMovieImage} className="movie__image"/>
+              <img src={defaultMovieImage} className="movie__image" alt="Изображение по умолчанию"/>
             </li>
           </ul>
           <button className="movies__more-button">Еще</button>

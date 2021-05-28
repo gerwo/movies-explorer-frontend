@@ -18,12 +18,12 @@ function Login() {
             <div className="form__input-container">
               <label className="form__label" htmlFor="email">
                 E-mail
-                <input name="email" type="email" className="form__input" required/>
+                <input name="email" type="email" className="form__input" required placeholder="E-mail"/>
               </label>
               <span className="form__error"></span>
               <label className="form__label" htmlFor="email">
                 Пароль
-                <input name="password" type="password" className="form__input" required/>
+                <input name="password" type="password" className="form__input" required placeholder="Пароль"/>
               </label>
               <span className="form__error"></span>
             </div>
