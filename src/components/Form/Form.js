@@ -10,9 +10,16 @@ function Form({
   linkPath,
   linkText,
   linkMod = '',
+  onSubmit,
+  data,
 }) {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+
+    onSubmit(data);
+  };
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       {children}
       <div className="form__buttons-container">
         <button
