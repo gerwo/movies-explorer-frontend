@@ -77,6 +77,7 @@ function App() {
               ? <Register
                 onRegister={handleRegister}
                 isFormDisabled={isFormDisabled}
+                message = {message}
               />
               : <Redirect to="/movies" />
             }

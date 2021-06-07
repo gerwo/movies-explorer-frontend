@@ -14,6 +14,7 @@ function Form({
   isFormDisabled,
   isValid,
   data = null,
+  message,
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -23,6 +24,7 @@ function Form({
   return (
     <form className="form" onSubmit={handleSubmit}>
       {children}
+      <span className="form__error">{message}</span>
       <div className="form__buttons-container">
         <button
           className={`

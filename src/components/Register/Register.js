@@ -9,6 +9,7 @@ import './Register.css';
 function Register({
   onRegister,
   isFormDisabled,
+  message,
 }) {
   const {
     values,
@@ -29,6 +30,7 @@ function Register({
         isValid={isValid}
         isFormDisabled={isFormDisabled}
         data={values}
+        message = {message}
         >
           <fieldset className="form__fieldset" disabled={isFormDisabled}>
             <div className="form__input-container">

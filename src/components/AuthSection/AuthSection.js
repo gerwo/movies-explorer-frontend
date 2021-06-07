@@ -15,6 +15,7 @@ function AuthSection({
   data,
   isValid,
   isFormDisabled,
+  message,
 }) {
   return (
     <>
@@ -28,6 +29,7 @@ function AuthSection({
           data={data}
           isValid={isValid}
           isFormDisabled={isFormDisabled}
+          message = {message}
         >
          {children}
         </Form>

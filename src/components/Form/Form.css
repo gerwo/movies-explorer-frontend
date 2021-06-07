@@ -148,11 +148,6 @@
   margin-bottom: 10px;
 }
 
-.form__error:last-of-type {
-  margin: 0;
-}
-
-
 .form__caption {
   color: #A0A0A0;
   font-size: 14px;
