@@ -13,6 +13,8 @@ function AuthSection({
   sectionTitle = '',
   onSubmit,
   data,
+  isValid,
+  isFormDisabled,
 }) {
   return (
     <>
@@ -22,8 +24,10 @@ function AuthSection({
           caption={caption}
           linkPath={linkPath}
           linkText={linkText}
-          onSubmit = {onSubmit}
-          data = {data}
+          onSubmit={onSubmit}
+          data={data}
+          isValid={isValid}
+          isFormDisabled={isFormDisabled}
         >
          {children}
         </Form>

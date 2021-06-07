@@ -11,7 +11,9 @@ function Form({
   linkText,
   linkMod = '',
   onSubmit,
-  data,
+  isFormDisabled,
+  isValid,
+  data = null,
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -23,7 +25,10 @@ function Form({
       {children}
       <div className="form__buttons-container">
         <button
-          className={`form__submit-button ${submitButtonMod}`}
+          className={`
+            form__submit-button ${submitButtonMod}
+            ${(!isValid || isFormDisabled) && 'form__submit-button_inactive'}
+          `}
         >
           {buttonText}
         </button>

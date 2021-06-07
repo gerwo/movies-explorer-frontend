@@ -17,10 +17,10 @@
   font-size: 11px;
   line-height: 13px;
   color: #8B8B8B;
-  margin: 0 0 10px;
   font-style: normal;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .form__label_section_profile {
@@ -32,7 +32,7 @@
 }
 
 .form__input {
-  margin: 10px 0 10px;
+  margin: 10px 0 0;
   border: none;
   color: #fff;
   padding: 15px;
@@ -77,6 +77,13 @@
   background: #4285F4;;
   cursor: pointer;
   border-radius: 3px;
+}
+
+.form__submit-button_inactive{
+  background: #F8F8F8;
+  color: #C2C2C2;
+  pointer-events: none;
+  user-select: none;
 }
 
 .form__submit-button:hover {
@@ -137,7 +144,12 @@
   font-size: 10px;
   line-height: 12px;
   color: #FF3055;
-  margin-top: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.form__error:last-of-type {
+  margin: 0;
 }
 
 
