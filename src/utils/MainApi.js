@@ -42,3 +42,36 @@ export const getUserData = () => fetchFullApi({
   headers,
   path: 'users/me',
 });
+
+export const getMovies = () => fetchFullApi({
+  BASE_URL,
+  path: 'movies',
+});
+
+export const saveMovie = ({
+  country, director, duration, year, description,
+  image, trailer, thumbnail, nameRU, nameEN, movieId,
+}) => fetchFullApi({
+  BASE_URL,
+  path: 'movies',
+  method: 'POST',
+  body: {
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailer,
+    thumbnail,
+    nameRU,
+    nameEN,
+    movieId,
+  },
+});
+
+export const removeMovie = ({ movieId }) => fetchFullApi({
+  BASE_URL,
+  path: `movies/${movieId}`,
+  method: 'DELETE',
+});
