@@ -7,3 +7,7 @@ export const techs = ['HTML', 'CSS', 'JS', 'React', 'Git', 'Express.js', 'mongoD
 export const staticSite = 'https://github.com/gerwo/how-to-learn';
 export const adaptiveSite = 'https://github.com/gerwo/russian-travel';
 export const spa = 'https://github.com/gerwo/react-mesto-auth';
+
+export const fetchErrorMessage = 'При запросе произошла ошибка';
+export const successMessage = 'Успешно!';
+export const searchErrorMessage = 'Необходимо ввести ключевое слово';

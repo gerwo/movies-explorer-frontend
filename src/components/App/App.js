@@ -8,12 +8,18 @@ import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import NotFound from '../NotFound/NotFound';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import * as api from '../../utils/MainApi';
+import { successMessage } from '../../utils/constants';
 
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+
+import successImg from '../../images/success-icon.png';
+// eslint-disable-next-line no-unused-vars
+import errorImg from '../../images/error-icon.png';
 
 import './App.css';
 
@@ -21,10 +27,19 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
+  const [infoTooltipImage, setInfoTooltipImage] = useState('');
+
   const [message, setMessage] = useState('');
 
   const showError = (msg) => {
     setMessage(msg);
+  };
+
+  const showSuccess = () => {
+    setMessage(successMessage);
+    setInfoTooltipImage(successImg);
+    setIsInfoTooltipOpen(true);
   };
 
   const getUserData = async () => {
@@ -43,6 +58,7 @@ function App() {
 
   const handleLogin = async (userData) => {
     try {
+      setMessage('');
       const user = await api.login(userData);
 
       setCurrentUser(user);
@@ -67,6 +83,7 @@ function App() {
     try {
       const user = await api.updateProfile(userData);
       setCurrentUser(user);
+      showSuccess();
     } catch (err) {
       showError(err.message);
     }
@@ -136,6 +153,13 @@ function App() {
 
           <Route path='*' component={NotFound} />
         </Switch>
+
+        <InfoTooltip
+          message={message}
+          isOpen={isInfoTooltipOpen}
+          image={infoTooltipImage}
+          setIsOpen={setIsInfoTooltipOpen}
+        />
     </CurrentUserContext.Provider>
     </div>
   );

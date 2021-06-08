@@ -13,7 +13,6 @@ function Profile({
   onSignout,
   onUpdateProfile,
   isLoggedIn,
-  message,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -42,7 +41,6 @@ function Profile({
           data={values}
           onSubmit={onUpdateProfile}
           isLoggedIn={isLoggedIn}
-          message = {message}
           isValid={isProfileValid}
         >
           <div className="form__containter form__containter_section_profile">
