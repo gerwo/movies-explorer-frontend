@@ -13,7 +13,9 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import * as api from '../../utils/MainApi';
-import { successMessage } from '../../utils/constants';
+import * as moviesApi from '../../utils/MoviesApi';
+import { searchByKeyword, formatMovies } from '../../utils/utils';
+import { successMessage, fetchErrorMessage } from '../../utils/constants';
 
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
@@ -30,7 +32,15 @@ function App() {
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState('');
 
+  const [isFetched, setIsFetched] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [message, setMessage] = useState('');
+
+  const [searchedMovies, setSearchedMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMoviesIds, setSavedMoviesIds] = useState([]);
+  const [searchedSavedMovies, setSearchedSavedMovies] = useState([]);
 
   const showError = (msg) => {
     setMessage(msg);
@@ -49,8 +59,6 @@ function App() {
       setCurrentUser(user);
       setIsLoggedIn(true);
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err.message);
       setCurrentUser({});
       setIsLoggedIn(false);
     }
@@ -100,9 +108,81 @@ function App() {
     }
   };
 
+  const saveMovie = async (movieData) => {
+    try {
+      // eslint-disable-next-line no-console
+      console.log(movieData);
+      const savedMovie = await api.saveMovie(movieData);
+
+      setSavedMovies([...savedMovies, savedMovie]);
+      setSavedMoviesIds([...savedMoviesIds, savedMovie.movieId]);
+      setSearchedSavedMovies([...savedMovies, savedMovie]);
+    } catch (err) {
+      showError(err.message);
+    }
+  };
+
+  const searchMovies = async (keyword, isIncludesShort) => {
+    setIsLoading(true);
+    setIsFetched(true);
+
+    try {
+      let movies = localStorage.getItem('movies');
+
+      if (!movies) {
+        const fetchedMovies = await moviesApi.getMovies();
+        const formattedFetchedMovies = formatMovies(fetchedMovies, moviesApi.BASE_URL);
+
+        localStorage.setItem('movies', JSON.stringify(formattedFetchedMovies));
+        movies = formattedFetchedMovies;
+      } else {
+        movies = JSON.parse(movies);
+      }
+      const filteredMovies = searchByKeyword(movies, keyword, isIncludesShort);
+      setSearchedMovies(filteredMovies);
+      localStorage.setItem('searchedMovies', JSON.stringify(filteredMovies));
+    } catch (err) {
+      showError(fetchErrorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const searchSavedMovies = (keyword, isIncludesShort) => {
+    const filteredSavedMovies = searchByKeyword(savedMovies, keyword, isIncludesShort);
+
+    setSearchedSavedMovies(filteredSavedMovies);
+  };
+
+  const removeMovie = async (movieId) => {
+    try {
+      const removedMovie = await api.removeMovie(movieId);
+
+      const filteredMovies = savedMovies.filter((movie) => movie.movieId !== removedMovie.movieId);
+      const filteredMoviesIds = savedMoviesIds.filter((id) => id !== removedMovie.movieId);
+
+      setSavedMovies(filteredMovies);
+      setSavedMoviesIds(filteredMoviesIds);
+      setSearchedSavedMovies(filteredMovies);
+    } catch (err) {
+      showError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
     getUserData();
   }, []);
+
+  useEffect(() => {
+    const localSearchedMovies = localStorage.getItem('searchedMovies');
+
+    if (isLoggedIn && localSearchedMovies) {
+      setSearchedMovies(JSON.parse(localSearchedMovies));
+      setIsFetched(true);
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className="root">
@@ -134,13 +214,24 @@ function App() {
           <ProtectedRoute
             path="/movies"
             isLoggedIn={isLoggedIn}
+            isFetched={isFetched}
+            isLoading={isLoading}
             component={Movies}
+            searchMovies={searchMovies}
+            removeMovie={removeMovie}
+            savedMoviesIds={savedMoviesIds}
+            movies={searchedMovies}
+            saveMovie={saveMovie}
           />
 
           <ProtectedRoute
             path="/saved-movies"
             isLoggedIn={isLoggedIn}
             component={SavedMovies}
+            removeMovie={removeMovie}
+            savedMoviesIds={savedMoviesIds}
+            searchMovies={searchSavedMovies}
+            movies={searchedSavedMovies}
           />
 
           <ProtectedRoute

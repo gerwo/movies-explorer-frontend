@@ -7,14 +7,33 @@ import Footer from '../Footer/Footer';
 
 import './Movies.css';
 
-function Movies() {
+function Movies({
+  searchMovies,
+  movies,
+  saveMovie,
+  removeMovie,
+  isFetched,
+  isLoading,
+  savedMoviesIds,
+}) {
+  // eslint-disable-next-line no-console
+  console.log(movies);
   return (
     <>
       <Header mod="header-movie">
         <Navigation/>
       </Header>
-      <SearchForm/>
-      <MoviesCardList/>
+      <SearchForm searchMovies={searchMovies}/>
+      {
+        isFetched
+          && <MoviesCardList
+            movies={movies}
+            isLoading={isLoading}
+            saveMovie={saveMovie}
+            removeMovie={removeMovie}
+            savedMoviesIds={savedMoviesIds}
+          />
+      }
       <Footer />
     </>
   );
