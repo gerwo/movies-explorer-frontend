@@ -15,6 +15,7 @@ function Form({
   isValid,
   data = null,
   message,
+  onLinkClick = () => {},
 }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -36,7 +37,7 @@ function Form({
         </button>
         <p className="form__caption">
           {caption}
-          <Link to={linkPath} className={`form__link ${linkMod}`}>{linkText}</Link>
+          <Link to={linkPath} onClick={onLinkClick} className={`form__link ${linkMod}`}>{linkText}</Link>
         </p>
       </div>
     </form>

@@ -1,11 +1,12 @@
 const fetchFullApi = async ({
-  BASE_URL, path = '', method = 'GET', body = {}, credentials = 'include', headers = {},
+  BASE_URL, path = '', method = 'GET', body = null, credentials = 'include', headers = {}, mode = 'cors',
 }) => {
   const res = await fetch(`${BASE_URL}/${path}`, {
     method,
     headers,
     body: body && JSON.stringify(body),
     credentials,
+    mode,
   });
 
   if (!res.ok) {

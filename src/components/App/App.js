@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Main from '../Main/Main';
@@ -21,49 +21,72 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
-  const [isFormDisabled, setIsFormDisabled] = useState(false);
-
-  // eslint-disable-next-line no-unused-vars
-  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [message, setMessage] = useState('');
-  // eslint-disable-next-line no-unused-vars
-  const [infoTooltipImage] = useState('');
 
   const showError = (msg) => {
     setMessage(msg);
-    setIsInfoTooltipOpen(true);
   };
 
-  const handleRegister = async (userData) => {
+  const getUserData = async () => {
     try {
-      setIsFormDisabled(true);
-      await api.register(userData);
+      const user = await api.getUserData();
+
+      setCurrentUser(user);
+      setIsLoggedIn(true);
     } catch (err) {
-      showError(err.message);
-    } finally {
-      setIsFormDisabled(false);
+      // eslint-disable-next-line no-console
+      console.log(err.message);
+      setCurrentUser({});
+      setIsLoggedIn(false);
     }
   };
 
   const handleLogin = async (userData) => {
     try {
-      setIsFormDisabled(true);
-
       const user = await api.login(userData);
 
       setCurrentUser(user);
       setIsLoggedIn(true);
     } catch (err) {
       showError(err.message);
-    } finally {
-      setIsFormDisabled(false);
+    }
+  };
+
+  const handleRegister = async (userData) => {
+    try {
+      showError('');
+      await api.register(userData);
+
+      handleLogin({ email: userData.email, password: userData.password });
+    } catch (err) {
+      showError(err.message);
+    }
+  };
+
+  const handleUpdateProfile = async (userData) => {
+    try {
+      const user = await api.updateProfile(userData);
+      setCurrentUser(user);
+    } catch (err) {
+      showError(err.message);
     }
   };
 
   const handleSignout = async () => {
+    try {
+      await api.logout();
 
+      setIsLoggedIn(false);
+      setCurrentUser({});
+    } catch (err) {
+      showError(err.message);
+    }
   };
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   return (
     <div className="root">
       <CurrentUserContext.Provider value={currentUser}>
@@ -76,7 +99,6 @@ function App() {
             {!isLoggedIn
               ? <Register
                 onRegister={handleRegister}
-                isFormDisabled={isFormDisabled}
                 message = {message}
               />
               : <Redirect to="/movies" />
@@ -87,7 +109,7 @@ function App() {
             {!isLoggedIn
               ? <Login
                 onLogin={handleLogin}
-                isFormDisabled={isFormDisabled}
+                message = {message}
               /> : <Redirect to="/movies" />
             }
           </Route>
@@ -109,7 +131,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             component={Profile}
             onSignout={handleSignout}
-            isFormDisabled={isFormDisabled}
+            onUpdateProfile={handleUpdateProfile}
           />
 
           <Route path='*' component={NotFound} />

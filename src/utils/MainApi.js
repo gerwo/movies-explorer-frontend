@@ -24,6 +24,7 @@ export const login = ({ email, password }) => fetchFullApi({
 
 export const logout = () => fetchFullApi({
   BASE_URL,
+  method: 'DELETE',
   headers,
   path: 'signout',
 });
@@ -36,11 +37,8 @@ export const updateProfile = ({ name, email }) => fetchFullApi({
   body: { name, email },
 });
 
-export const getUserData = (jwt) => fetchFullApi({
+export const getUserData = () => fetchFullApi({
   BASE_URL,
-  headers: {
-    ...headers,
-    Authorization: `Bearer ${jwt}`,
-  },
+  headers,
   path: 'users/me',
 });
