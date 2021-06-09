@@ -25,6 +25,7 @@ function SavedMovies({
         isLoading={isLoading}
         removeMovie={removeMovie}
         savedMoviesIds={savedMoviesIds}
+        savedPage={true}
       />
       <Footer />
     </>

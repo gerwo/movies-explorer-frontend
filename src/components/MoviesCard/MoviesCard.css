@@ -70,6 +70,10 @@
   background: url('../../images/delete-icon.svg') no-repeat center center;
 }
 
+.movie:hover .movie__saved-page.movie__saved-button {
+  background: url('../../images/delete-icon.svg') no-repeat center center;
+}
+
 @media (max-width: 768px) {
   .movie__image {
     min-height: 190px;

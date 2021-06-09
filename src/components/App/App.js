@@ -20,7 +20,6 @@ import { successMessage, fetchErrorMessage } from '../../utils/constants';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 import successImg from '../../images/success-icon.png';
-// eslint-disable-next-line no-unused-vars
 import errorImg from '../../images/error-icon.png';
 
 import './App.css';
@@ -44,6 +43,8 @@ function App() {
 
   const showError = (msg) => {
     setMessage(msg);
+    setInfoTooltipImage(errorImg);
+    setIsInfoTooltipOpen(true);
   };
 
   const showSuccess = () => {
@@ -154,11 +155,18 @@ function App() {
     setSearchedSavedMovies(filteredSavedMovies);
   };
 
-  const removeMovie = async (_id) => {
+  const removeMovie = async (movieId) => {
     try {
-      const removedMovie = await api.removeMovie({ movieId: _id });
+      let dbId;
 
-      const filteredMovies = savedMovies.filter((node) => node.movieId !== removedMovie.movieId);
+      const movieToDelete = savedMovies.find((movie) => movie.movieId === movieId);
+      if (movieToDelete) {
+        dbId = movieToDelete._id;
+      }
+
+      const removedMovie = await api.removeMovie(dbId);
+
+      const filteredMovies = savedMovies.filter((movie) => movie.movieId !== removedMovie.movieId);
       const filteredMoviesIds = savedMoviesIds.filter((id) => id !== removedMovie.movieId);
 
       setSavedMovies(filteredMovies);

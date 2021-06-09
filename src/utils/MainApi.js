@@ -72,9 +72,9 @@ export const saveMovie = ({
   },
 });
 
-export const removeMovie = ({ movieId }) => fetchFullApi({
+export const removeMovie = (dbId) => fetchFullApi({
   BASE_URL,
-  path: `movies/${movieId}`,
+  path: `movies/${dbId}`,
   headers,
   method: 'DELETE',
 });

@@ -18,6 +18,7 @@ function MoviesCardList({
   saveMovie = () => {},
   removeMovie,
   savedMoviesIds,
+  savedPage,
 }) {
   const [renderedMoviesCount, setRenderedMoviesCount] = useState(0);
   const [MoviesToMoreRenderCount, setMoviesToMoreRenderCount] = useState(0);
@@ -79,6 +80,7 @@ function MoviesCardList({
                       onSave={saveMovie}
                       onRemove={removeMovie}
                       savedMoviesIds={savedMoviesIds}
+                      savedPage={savedPage}
                     />,
                   );
                 }
