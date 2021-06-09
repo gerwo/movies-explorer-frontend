@@ -9,10 +9,14 @@
 
 .movie__container{
   display: grid;
-  grid-template-columns: auto 30px;
+  grid-template: 1fr/1fr 30px;
   gap: 26px;
   margin: 14px;
   align-items: center;
+}
+
+.movie__text-container{
+  overflow: hidden;
 }
 
 .movie__image{
@@ -67,10 +71,6 @@
 }
 
 .movie__delete-button{
-  background: url('../../images/delete-icon.svg') no-repeat center center;
-}
-
-.movie:hover .movie__saved-page.movie__saved-button {
   background: url('../../images/delete-icon.svg') no-repeat center center;
 }
 

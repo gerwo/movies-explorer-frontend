@@ -73,18 +73,18 @@ function App() {
       setCurrentUser(user);
       setIsLoggedIn(true);
     } catch (err) {
-      showError(err.message);
+      setMessage(err.message);
     }
   };
 
   const handleRegister = async (userData) => {
     try {
-      showError('');
+      setMessage('');
       await api.register(userData);
 
       handleLogin({ email: userData.email, password: userData.password });
     } catch (err) {
-      showError(err.message);
+      setMessage(err.message);
     }
   };
 
@@ -94,7 +94,7 @@ function App() {
       setCurrentUser(user);
       showSuccess();
     } catch (err) {
-      showError(err.message);
+      setMessage(err.message);
     }
   };
 
@@ -104,6 +104,7 @@ function App() {
 
       setIsLoggedIn(false);
       setCurrentUser({});
+      setMessage('');
     } catch (err) {
       showError(err.message);
     }
