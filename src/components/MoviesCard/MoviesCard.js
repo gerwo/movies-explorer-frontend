@@ -21,7 +21,11 @@ function MoviesCard({
     duration,
     trailer,
     movieId,
+    _id,
   } = movie;
+
+  // eslint-disable-next-line no-console
+  console.log(movie);
 
   const durationHours = Math.floor(duration / 60);
   const durationMinutes = duration - (durationHours * 60);
@@ -58,7 +62,7 @@ function MoviesCard({
   };
 
   const handleRemove = () => {
-    onRemove({ movieId });
+    onRemove(_id);
   };
 
   return (
@@ -70,7 +74,7 @@ function MoviesCard({
             <span className="movie__duration">{durationString}</span>
           </div>
           <div className="movie__button-container">
-            <button className={`movie__button movie__unsave-button ${isSaved && 'movie__saved-icon'}`} onClick={!isSaved ? handleSave : handleRemove}></button>
+            <button className={`movie__button movie__unsave-button ${isSaved && 'movie__saved-button'}`} onClick={!isSaved ? handleSave : handleRemove}></button>
           </div>
         </div>
         <img src={image || defaultMovieImage} className="movie__image" alt={nameRU} onClick={handleClick}/>

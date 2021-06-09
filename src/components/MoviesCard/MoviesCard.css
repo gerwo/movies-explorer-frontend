@@ -52,11 +52,17 @@
   border: 0;
 }
 
+.movies__error{
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
 .movie__unsave-button{
   background: url('../../images/unsaved-icon.svg') no-repeat center center;
 }
 
-.movie__save-button{
+.movie__saved-button{
   background: url('../../images/saved-icon.svg') no-repeat center center;
 }
 

@@ -154,11 +154,11 @@ function App() {
     setSearchedSavedMovies(filteredSavedMovies);
   };
 
-  const removeMovie = async (movieId) => {
+  const removeMovie = async (_id) => {
     try {
-      const removedMovie = await api.removeMovie(movieId);
+      const removedMovie = await api.removeMovie({ movieId: _id });
 
-      const filteredMovies = savedMovies.filter((movie) => movie.movieId !== removedMovie.movieId);
+      const filteredMovies = savedMovies.filter((node) => node.movieId !== removedMovie.movieId);
       const filteredMoviesIds = savedMoviesIds.filter((id) => id !== removedMovie.movieId);
 
       setSavedMovies(filteredMovies);
@@ -174,6 +174,26 @@ function App() {
   useEffect(() => {
     getUserData();
   }, []);
+
+  useEffect(() => {
+    const getSavedMovies = async () => {
+      try {
+        const fetchedSavedMovies = await api.getMovies();
+
+        const fetchedSavedMoviesIds = fetchedSavedMovies.map((movie) => movie.movieId);
+
+        setSavedMovies(fetchedSavedMovies);
+        setSavedMoviesIds(fetchedSavedMoviesIds);
+        setSearchedSavedMovies(fetchedSavedMovies);
+      } catch (err) {
+        showError(err.message);
+      }
+    };
+
+    if (isLoggedIn) {
+      getSavedMovies();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const localSearchedMovies = localStorage.getItem('searchedMovies');
