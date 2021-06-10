@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.form__containter{
+  padding: 0;
+  border: 0;
+}
 .form__fieldset {
   margin: 0 0 69px;
   padding: 0;

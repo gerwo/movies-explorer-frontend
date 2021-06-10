@@ -13,6 +13,7 @@ function Profile({
   onSignout,
   onUpdateProfile,
   isLoggedIn,
+  isFormDisabled,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -43,7 +44,7 @@ function Profile({
           isLoggedIn={isLoggedIn}
           isValid={isProfileValid}
         >
-          <div className="form__containter form__containter_section_profile">
+          <fieldset className="form__containter form__containter_section_profile" disabled={isFormDisabled}>
             <div className="form__input-container form__input-container_section_profile">
               <label className="form__label form__label_section_profile" htmlFor="name">
                 Имя
@@ -58,7 +59,7 @@ function Profile({
               </label>
               <span className="form__error">{errors.email}</span>
             </div>
-          </div>
+          </fieldset>
         </Form>
       </Section>
     </>

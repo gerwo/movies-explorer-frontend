@@ -17,3 +17,5 @@ export const moviesCountToRenderMedium = 8;
 export const moviesCountToRenderBig = 12;
 export const moviesCountToMoreRenderSmall = 2;
 export const moviesCountToMoreRenderBig = 3;
+
+export const shortDuration = 40;

@@ -6,7 +6,11 @@ import useForm from '../../hooks/useForm';
 
 import './Register.css';
 
-function Register({ onRegister, message }) {
+function Register({
+  onRegister,
+  message,
+  isFormDisabled,
+}) {
   const {
     values,
     handleChange,
@@ -26,8 +30,9 @@ function Register({ onRegister, message }) {
         isValid={isValid}
         data={values}
         message = {message}
+        isFormDisabled={isFormDisabled}
         >
-          <fieldset className="form__fieldset">
+          <fieldset className="form__fieldset" disabled={isFormDisabled}>
             <div className="form__input-container">
               <label className="form__label" htmlFor="name">
                 Имя

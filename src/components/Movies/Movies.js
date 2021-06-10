@@ -16,8 +16,6 @@ function Movies({
   isLoading,
   savedMoviesIds,
 }) {
-  // eslint-disable-next-line no-console
-  console.log(movies);
   return (
     <>
       <Header mod="header-movie">

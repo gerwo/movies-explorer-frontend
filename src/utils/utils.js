@@ -1,9 +1,11 @@
+import { shortDuration } from './constants';
+
 export const searchByKeyword = (movies, keyword = '', isIncludesShort) => {
-  const minDuration = isIncludesShort ? 0 : 40;
+  const minDuration = !isIncludesShort ? 0 : shortDuration;
 
   return movies.filter(
     (movie) => (keyword ? movie.nameRU.toLowerCase().includes(keyword.toLowerCase()) : true)
-      && movie.duration > minDuration,
+      && (isIncludesShort ? movie.duration <= minDuration : movie.duration > minDuration),
   );
 };
 

@@ -6,7 +6,11 @@ import useForm from '../../hooks/useForm';
 
 import './Login.css';
 
-function Login({ onLogin, message }) {
+function Login({
+  onLogin,
+  message,
+  isFormDisabled,
+}) {
   const {
     values,
     handleChange,
@@ -26,7 +30,7 @@ function Login({ onLogin, message }) {
         isValid={isValid}
         data={values}
         message = {message}>
-          <fieldset className="form__fieldset">
+          <fieldset className="form__fieldset" disabled={isFormDisabled}>
             <div className="form__input-container">
               <label className="form__label" htmlFor="email">
                 E-mail

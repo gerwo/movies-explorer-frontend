@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  BrowserRouter,
+} from 'react-router-dom';
 
 import Main from '../Main/Main';
 import Login from '../Login/Login';
@@ -31,6 +36,7 @@ function App() {
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState('');
 
+  const [isFormDisabled, setIsFormDisabled] = useState(false);
   const [isFetched, setIsFetched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -67,6 +73,7 @@ function App() {
 
   const handleLogin = async (userData) => {
     try {
+      setIsFormDisabled(true);
       setMessage('');
       const user = await api.login(userData);
 
@@ -74,27 +81,35 @@ function App() {
       setIsLoggedIn(true);
     } catch (err) {
       setMessage(err.message);
+    } finally {
+      setIsFormDisabled(false);
     }
   };
 
   const handleRegister = async (userData) => {
     try {
+      setIsFormDisabled(true);
       setMessage('');
       await api.register(userData);
 
       handleLogin({ email: userData.email, password: userData.password });
     } catch (err) {
       setMessage(err.message);
+    } finally {
+      setIsFormDisabled(false);
     }
   };
 
   const handleUpdateProfile = async (userData) => {
     try {
+      setIsFormDisabled(true);
       const user = await api.updateProfile(userData);
       setCurrentUser(user);
       showSuccess();
     } catch (err) {
       setMessage(err.message);
+    } finally {
+      setIsFormDisabled(false);
     }
   };
 
@@ -107,6 +122,8 @@ function App() {
       setMessage('');
     } catch (err) {
       showError(err.message);
+    } finally {
+      setIsFormDisabled(false);
     }
   };
 
@@ -216,6 +233,7 @@ function App() {
   return (
     <div className="root">
       <CurrentUserContext.Provider value={currentUser}>
+        <BrowserRouter>
       <Switch>
           <Route exact path="/">
             <Main isLoggedIn={isLoggedIn} />
@@ -226,6 +244,7 @@ function App() {
               ? <Register
                 onRegister={handleRegister}
                 message = {message}
+                isFormDisabled={isFormDisabled}
               />
               : <Redirect to="/movies" />
             }
@@ -236,6 +255,7 @@ function App() {
               ? <Login
                 onLogin={handleLogin}
                 message = {message}
+                isFormDisabled={isFormDisabled}
               /> : <Redirect to="/movies" />
             }
           </Route>
@@ -269,6 +289,7 @@ function App() {
             component={Profile}
             onSignout={handleSignout}
             onUpdateProfile={handleUpdateProfile}
+            isFormDisabled={isFormDisabled}
           />
 
           <Route path='*' component={NotFound} />
@@ -280,6 +301,7 @@ function App() {
           image={infoTooltipImage}
           setIsOpen={setIsInfoTooltipOpen}
         />
+        </BrowserRouter>
     </CurrentUserContext.Provider>
     </div>
   );

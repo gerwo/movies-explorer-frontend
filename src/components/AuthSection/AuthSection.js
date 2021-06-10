@@ -14,27 +14,23 @@ function AuthSection({
   onSubmit,
   data,
   isValid,
-  isFormDisabled,
   message,
 }) {
   return (
-    <>
-      <Section mod="auth" sectionTitleMod="auth-title" sectionTitle={sectionTitle}>
-        <Form
-          buttonText={buttonText}
-          caption={caption}
-          linkPath={linkPath}
-          linkText={linkText}
-          onSubmit={onSubmit}
-          data={data}
-          isValid={isValid}
-          isFormDisabled={isFormDisabled}
-          message = {message}
-        >
-         {children}
-        </Form>
-      </Section>
-    </>
+    <Section mod="auth" sectionTitleMod="auth-title" sectionTitle={sectionTitle}>
+      <Form
+        buttonText={buttonText}
+        caption={caption}
+        linkPath={linkPath}
+        linkText={linkText}
+        onSubmit={onSubmit}
+        data={data}
+        isValid={isValid}
+        message = {message}
+      >
+        {children}
+      </Form>
+    </Section>
   );
 }
 

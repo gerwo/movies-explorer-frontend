@@ -63,20 +63,18 @@ function MoviesCard({
   };
 
   return (
-    <>
-      <li className="movie">
-        <div className="movie__container">
-          <div className="movie__text-container">
-            <p className="movie__title">{nameRU}</p>
-            <span className="movie__duration">{durationString}</span>
-          </div>
-          <div className="movie__button-container">
-            <button className={`movie__button movie__unsave-button ${isSaved && 'movie__saved-button'} ${savedPage && 'movie__delete-button'}`} onClick={!isSaved && !savedPage ? handleSave : handleRemove}></button>
-          </div>
+    <li className="movie">
+      <div className="movie__container">
+        <div className="movie__text-container">
+          <p className="movie__title">{nameRU}</p>
+          <span className="movie__duration">{durationString}</span>
         </div>
-        <img src={image || defaultMovieImage} className="movie__image" alt={nameRU} onClick={handleClick}/>
-      </li>
-    </>
+        <div className="movie__button-container">
+          <button className={`movie__button movie__unsave-button ${isSaved && 'movie__saved-button'} ${savedPage && 'movie__delete-button'}`} onClick={!isSaved && !savedPage ? handleSave : handleRemove}></button>
+        </div>
+      </div>
+      <img src={image || defaultMovieImage} className="movie__image" alt={nameRU} onClick={handleClick}/>
+    </li>
   );
 }
 
